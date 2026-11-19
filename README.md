@@ -1,6 +1,6 @@
 <div align="center">
 
-
+<img src="./docs/hero-banner.svg" alt="SEKAI: Custom Stage" width="100%" />
 
 <br />
 <br />

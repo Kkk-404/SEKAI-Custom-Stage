@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 150" width="1080" height="150">
+  <rect width="1080" height="150" rx="20" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- 1. Tap -->
+  <g transform="translate(22, 18)">
+    <rect width="194" height="114" rx="14" fill="#172038" stroke="#39C5BB" stroke-opacity="0.55"/>
+    <rect x="52" y="28" width="90" height="16" rx="8" fill="#39C5BB" stroke="#ffffff" stroke-width="2"/>
+    <text x="97" y="72" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="15" fill="#ffffff">TAP</text>
+    <text x="97" y="92" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="11" fill="#94a3b8">Обычный удар в линию</text>
+  </g>
+
+  <!-- 2. Critical -->
+  <g transform="translate(232, 18)">
+    <rect width="194" height="114" rx="14" fill="#172038" stroke="#fde047" stroke-opacity="0.6"/>
+    <rect x="52" y="28" width="90" height="16" rx="8" fill="#fde047" stroke="#ffffff" stroke-width="2"/>
+    <text x="97" y="72" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="15" fill="#fde047">CRITICAL ×2</text>
+    <text x="97" y="92" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="11" fill="#94a3b8">Двойные очки PERFECT</text>
+  </g>
+
+  <!-- 3. Flick -->
+  <g transform="translate(442, 18)">
+    <rect width="194" height="114" rx="14" fill="#172038" stroke="#ff4f93" stroke-opacity="0.6"/>
+    <polyline points="85,26 97,14 109,26" fill="none" stroke="#fbcfe8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="52" y="30" width="90" height="16" rx="8" fill="#ff4f93" stroke="#ffffff" stroke-width="2"/>
+    <text x="97" y="72" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="15" fill="#f9a8d4">FLICK ▲</text>
+    <text x="97" y="92" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="11" fill="#94a3b8">Свайп на телефоне</text>
+  </g>
+
+  <!-- 4. Trace -->
+  <g transform="translate(652, 18)">
+    <rect width="194" height="114" rx="14" fill="#172038" stroke="#34d399" stroke-opacity="0.6"/>
+    <rect x="52" y="31" width="90" height="10" rx="5" fill="#a7f3d0" stroke="#10b981" stroke-width="1.5"/>
+    <polygon points="97,23 110,36 97,49 84,36" fill="#34d399" stroke="#ffffff" stroke-width="2"/>
+    <text x="97" y="72" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="15" fill="#6ee7b7">TRACE ◆</text>
+    <text x="97" y="92" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="11" fill="#94a3b8">Удерживай без клика</text>
+  </g>
+
+  <!-- 5. Slide -->
+  <g transform="translate(862, 18)">
+    <rect width="194" height="114" rx="14" fill="#172038" stroke="#38bdf8" stroke-opacity="0.6"/>
+    <path d="M 65,44 C 65,30 108,28 112,18 L 136,18 C 132,30 92,32 92,44 Z" fill="#34d399" fill-opacity="0.55" stroke="#6ee7b7" stroke-width="1.5"/>
+    <rect x="56" y="40" width="44" height="10" rx="5" fill="#34d399" stroke="#ffffff" stroke-width="1.5"/>
+    <rect x="104" y="14" width="42" height="10" rx="5" fill="#ff4f93" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="97" y="72" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="15" fill="#bae6fd">SLIDE</text>
+    <text x="97" y="92" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="11" fill="#94a3b8">Веди палец по ленте</text>
+  </g>
+</svg>
