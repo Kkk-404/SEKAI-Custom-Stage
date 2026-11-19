@@ -1,0 +1,482 @@
+/* ============================================================================
+   ЖИВОЙ АНИМИРОВАННЫЙ ФОН СЦЕНЫ  ·  AnimatedBackdrop
+   ----------------------------------------------------------------------------
+   Все слои живут на transform/opacity, поэтому фон не нагружает CPU/GPU
+   во время игры. Палитра берётся из активной темы оформления (--amb-*),
+   плотность слоёв — из data-quality (eco / lite / rich).
+   ========================================================================== */
+
+/* --- 1. Палитры по темам приложения ------------------------------------- */
+:root,
+:root[data-app-theme='light'] {
+  --amb-1: 57, 197, 187;
+  --amb-2: 255, 79, 147;
+  --amb-3: 129, 140, 248;
+  --amb-4: 56, 189, 248;
+  --amb-beam-alpha: 0.3;
+  --amb-halo-alpha: 0.3;
+  --amb-mote: 26, 74, 88;
+  --amb-mote-alpha: 0.5;
+  --amb-note-alpha: 0.24;
+  --amb-veil-rgb: 255, 255, 255;
+  --amb-veil-alpha: 0.24;
+  --amb-floor-alpha: 0.7;
+  --amb-grain-alpha: 0.055;
+}
+
+:root[data-app-theme='pink'] {
+  --amb-1: 255, 105, 170;
+  --amb-2: 196, 108, 255;
+  --amb-3: 255, 196, 140;
+  --amb-4: 255, 160, 200;
+  --amb-veil-rgb: 255, 250, 253;
+  --amb-mote: 94, 34, 66;
+}
+
+:root[data-app-theme='mint'] {
+  --amb-1: 56, 189, 248;
+  --amb-2: 45, 212, 191;
+  --amb-3: 96, 165, 250;
+  --amb-4: 125, 211, 252;
+  --amb-veil-rgb: 250, 254, 255;
+  --amb-mote: 18, 60, 90;
+}
+
+:root[data-app-theme='gold'] {
+  --amb-1: 251, 191, 36;
+  --amb-2: 251, 113, 133;
+  --amb-3: 253, 224, 120;
+  --amb-4: 245, 158, 11;
+  --amb-veil-rgb: 255, 251, 244;
+  --amb-mote: 92, 58, 12;
+}
+
+:root[data-app-theme='dark'] {
+  --amb-1: 167, 139, 250;
+  --amb-2: 56, 189, 248;
+  --amb-3: 244, 114, 182;
+  --amb-4: 129, 140, 248;
+  --amb-beam-alpha: 0.42;
+  --amb-halo-alpha: 0.3;
+  --amb-mote: 255, 255, 255;
+  --amb-mote-alpha: 0.62;
+  --amb-note-alpha: 0.22;
+  --amb-veil-rgb: 4, 5, 14;
+  --amb-veil-alpha: 0.62;
+  --amb-floor-alpha: 0.3;
+  --amb-grain-alpha: 0.08;
+}
+
+:root[data-app-theme='cyber'] {
+  --amb-1: 34, 211, 238;
+  --amb-2: 244, 63, 94;
+  --amb-3: 168, 85, 247;
+  --amb-4: 56, 189, 248;
+  --amb-beam-alpha: 0.46;
+  --amb-halo-alpha: 0.32;
+  --amb-mote: 210, 255, 255;
+  --amb-mote-alpha: 0.68;
+  --amb-veil-rgb: 2, 4, 12;
+  --amb-veil-alpha: 0.66;
+  --amb-floor-alpha: 0.34;
+  --amb-grain-alpha: 0.09;
+}
+
+/* --- 2. Оболочка --------------------------------------------------------- */
+.amb-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: opacity 420ms ease;
+}
+
+/* Тёмные сцены (Vivid / Nightcord) при светлой теме приложения */
+.pjsk-theme-vivid .amb-shell,
+.pjsk-theme-nightcord .amb-shell {
+  --amb-beam-alpha: 0.4;
+  --amb-halo-alpha: 0.28;
+  --amb-mote: 235, 245, 255;
+  --amb-mote-alpha: 0.6;
+  --amb-veil-rgb: 6, 9, 24;
+  --amb-veil-alpha: 0.58;
+  --amb-floor-alpha: 0.28;
+  --amb-grain-alpha: 0.07;
+}
+
+.amb-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* --- 3. Аврора: световые облака ----------------------------------------- */
+.amb-aurora-field {
+  inset: -18%;
+  filter: blur(2px);
+}
+
+.amb-aurora {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  will-change: transform;
+  animation: ambAurora 34s ease-in-out infinite;
+}
+
+.amb-aurora--1 {
+  top: -6%;
+  left: -10%;
+  width: 68vw;
+  height: 68vw;
+  background: radial-gradient(circle at 50% 50%, rgba(var(--amb-1), 0.82), rgba(var(--amb-1), 0) 70%);
+  animation-duration: 31s;
+}
+
+.amb-aurora--2 {
+  top: -14%;
+  right: -12%;
+  width: 62vw;
+  height: 62vw;
+  background: radial-gradient(circle at 50% 50%, rgba(var(--amb-2), 0.72), rgba(var(--amb-2), 0) 68%);
+  animation-duration: 39s;
+  animation-delay: -9s;
+}
+
+.amb-aurora--3 {
+  bottom: -22%;
+  left: 22%;
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle at 50% 50%, rgba(var(--amb-3), 0.64), rgba(var(--amb-3), 0) 70%);
+  animation-duration: 46s;
+  animation-delay: -17s;
+}
+
+.amb-aurora--4 {
+  bottom: -18%;
+  right: 4%;
+  width: 48vw;
+  height: 48vw;
+  background: radial-gradient(circle at 50% 50%, rgba(var(--amb-4), 0.76), rgba(var(--amb-4), 0) 66%);
+  animation-duration: 27s;
+  animation-delay: -5s;
+}
+
+@keyframes ambAurora {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(4vw, -3vh, 0) scale(1.1);
+  }
+  66% {
+    transform: translate3d(-3vw, 4vh, 0) scale(0.94);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/* --- 4. Призматическое гало -------------------------------------------- */
+.amb-halo {
+  inset: auto auto auto 50%;
+  top: -34vh;
+  width: 118vh;
+  height: 118vh;
+  transform: translateX(-50%);
+  opacity: var(--amb-halo-alpha);
+  filter: blur(28px);
+}
+
+.amb-halo__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(var(--amb-1), 0.75),
+    rgba(var(--amb-4), 0.2) 22%,
+    rgba(var(--amb-2), 0.7) 48%,
+    rgba(var(--amb-3), 0.24) 68%,
+    rgba(var(--amb-1), 0.75) 100%
+  );
+  mask-image: radial-gradient(circle, transparent 44%, #000 58%, transparent 88%);
+  -webkit-mask-image: radial-gradient(circle, transparent 44%, #000 58%, transparent 88%);
+  animation: ambSpin 58s linear infinite;
+  will-change: transform;
+}
+
+.amb-halo__ring--b {
+  inset: 22%;
+  opacity: 0.55;
+  animation: ambSpin 34s linear infinite reverse;
+}
+
+@keyframes ambSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- 5. Перспективный пол сцены ---------------------------------------- */
+.amb-floor {
+  inset: auto 0 0 0;
+  height: 46vh;
+  overflow: hidden;
+  mask-image: linear-gradient(to top, #000 4%, rgba(0, 0, 0, 0.55) 46%, transparent 88%);
+  -webkit-mask-image: linear-gradient(to top, #000 4%, rgba(0, 0, 0, 0.55) 46%, transparent 88%);
+}
+
+.amb-floor__grid {
+  position: absolute;
+  left: -50%;
+  right: -50%;
+  bottom: -34%;
+  height: 150%;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(var(--amb-1), var(--amb-floor-alpha)) 0 1px, transparent 1px 92px),
+    repeating-linear-gradient(0deg, rgba(var(--amb-1), calc(var(--amb-floor-alpha) * 0.7)) 0 1px, transparent 1px 76px);
+  transform: perspective(560px) rotateX(67deg);
+  transform-origin: 50% 100%;
+  animation: ambFloorScroll 5.6s linear infinite;
+  will-change: background-position;
+}
+
+.amb-floor__wires {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 34%;
+  background:
+    radial-gradient(ellipse 60% 100% at 50% 112%, rgba(var(--amb-2), 0.34), transparent 72%),
+    linear-gradient(to top, rgba(var(--amb-2), 0.16), transparent 60%);
+  animation: ambWirePulse 4.6s ease-in-out infinite;
+}
+
+@keyframes ambFloorScroll {
+  to {
+    background-position: 0 0, 0 76px;
+  }
+}
+
+@keyframes ambWirePulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* --- 6. Прожекторы ------------------------------------------------------ */
+
+
+.amb-beam {
+  position: absolute;
+  top: -34%;
+  bottom: -34%;
+  left: var(--beam-left);
+  width: var(--beam-width);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(var(--amb-hue), calc(var(--amb-beam-alpha) * 0.5)) 42%,
+    rgba(var(--amb-hue), var(--amb-beam-alpha)) 52%,
+    rgba(var(--amb-hue), calc(var(--amb-beam-alpha) * 0.5)) 62%,
+    transparent 100%
+  );
+  filter: blur(22px);
+  transform-origin: 50% 0%;
+  animation: ambBeamSweep var(--beam-duration) ease-in-out infinite;
+  animation-delay: var(--beam-delay);
+  will-change: transform;
+}
+
+@keyframes ambBeamSweep {
+  0%,
+  100% {
+    transform: rotate(var(--beam-rotate)) translate3d(-6vw, 0, 0) scaleY(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: rotate(calc(var(--beam-rotate) * -0.5)) translate3d(7vw, 4vh, 0) scaleY(1.08);
+    opacity: 1;
+  }
+}
+
+/* --- 7. Пыль и искры ---------------------------------------------------- */
+.amb-dust__mote {
+  position: absolute;
+  border-radius: 50%;
+  background: rgb(var(--amb-mote));
+  box-shadow: 0 0 8px rgba(var(--mote-hue), 0.85);
+  opacity: var(--amb-mote-alpha);
+  animation-name: ambMote;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes ambMote {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(0.8);
+    opacity: calc(var(--amb-mote-alpha) * 0.35);
+  }
+  50% {
+    transform: translate3d(var(--mote-drift), -3.4vh, 0) scale(1.15);
+    opacity: var(--amb-mote-alpha);
+  }
+}
+
+/* --- 8. Летящие ноты ---------------------------------------------------- */
+.amb-note {
+  position: absolute;
+  bottom: -8vh;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(var(--amb-2), var(--amb-note-alpha));
+  text-shadow: 0 0 18px rgba(var(--amb-2), 0.5);
+  animation-name: ambNoteRise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+.amb-note:nth-child(even) {
+  color: rgba(var(--amb-1), var(--amb-note-alpha));
+  text-shadow: 0 0 18px rgba(var(--amb-1), 0.5);
+}
+
+@keyframes ambNoteRise {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-6deg) scale(0.9);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  78% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(3vw, -112vh, 0) rotate(14deg) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* --- 9. Эквалайзер по нижней кромке ------------------------------------ */
+.amb-eq {
+  inset: auto 0 0 0;
+  height: 11vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0 4vw;
+  opacity: 0.62;
+  mask-image: linear-gradient(to top, #000 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 100%);
+}
+
+.amb-eq__bar {
+  flex: 1 1 0;
+  max-width: 12px;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(to top, rgba(var(--amb-1), 0.06), rgba(var(--amb-2), 0.7));
+  transform-origin: 50% 100%;
+  animation: ambEqPulse 1.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes ambEqPulse {
+  0%,
+  100% {
+    transform: scaleY(0.18);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* --- 10. Глубина: виньетка и зерно ------------------------------------- */
+.amb-vignette {
+  background:
+    radial-gradient(ellipse 120% 90% at 50% 8%, transparent 34%, rgba(var(--amb-veil-rgb), calc(var(--amb-veil-alpha) * 0.9)) 100%),
+    linear-gradient(to top, rgba(var(--amb-veil-rgb), calc(var(--amb-veil-alpha) * 0.75)), transparent 42%);
+}
+
+.amb-grain {
+  opacity: var(--amb-grain-alpha);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.62'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  mix-blend-mode: overlay;
+}
+
+/* --- 11. Варианты ------------------------------------------------------ */
+.amb-shell--quiet {
+  opacity: 0.7;
+}
+
+.amb-shell--quiet .amb-eq,
+.amb-shell--quiet .amb-halo {
+  display: none;
+}
+
+.amb-shell--stage {
+  opacity: 0.85;
+}
+
+/* --- 12. Мобильные: меньше слоёв и мягче свет -------------------------- */
+@media (max-width: 700px) {
+  .amb-halo {
+    top: -24vh;
+    width: 92vh;
+    height: 92vh;
+    filter: blur(20px);
+  }
+
+  .amb-floor {
+    height: 34vh;
+  }
+
+  .amb-eq {
+    height: 6vh;
+    gap: 0.22rem;
+    opacity: 0.34;
+  }
+
+  .amb-beam:nth-child(3) {
+    display: none;
+  }
+
+  .amb-dust__mote:nth-child(n + 27) {
+    display: none;
+  }
+}
+
+/* --- 13. Eco: только аврора и виньетка --------------------------------- */
+.amb-shell[data-quality='eco'] .amb-dust,
+.amb-shell[data-quality='eco'] .amb-beams {
+  display: none;
+}
+
+/* --- 14. Уважение к настройке «уменьшить движение» --------------------- */
+:root[data-app-motion='reduced'] .amb-shell *,
+:root[data-app-motion='reduced'] .amb-shell {
+  animation: none !important;
+}
+
+:root[data-app-motion='reduced'] .amb-aurora {
+  opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-app-motion='system'] .amb-shell *,
+  :root[data-app-motion='system'] .amb-shell {
+    animation: none !important;
+  }
+}
