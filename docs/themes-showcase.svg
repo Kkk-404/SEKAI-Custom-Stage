@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 185" width="1080" height="185">
+  <rect width="1080" height="185" rx="20" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- 1. Light -->
+  <g transform="translate(18, 16)">
+    <rect width="160" height="153" rx="14" fill="#edf5f5" stroke="#d3e6e3" stroke-width="1.5"/>
+    <rect x="10" y="10" width="140" height="22" rx="6" fill="#ffffff" stroke="#d3e6e3"/>
+    <circle cx="23" cy="21" r="5" fill="#15857d"/>
+    <rect x="34" y="18" width="52" height="6" rx="3" fill="#25383f" opacity="0.5"/>
+    <rect x="10" y="40" width="66" height="58" rx="7" fill="#e1f2ef" stroke="#15857d"/>
+    <rect x="84" y="40" width="66" height="58" rx="7" fill="#ffffff" stroke="#d3e6e3"/>
+    <rect x="94" y="76" width="46" height="12" rx="4" fill="#15857d"/>
+    <text x="12" y="122" font-family="system-ui, sans-serif" font-weight="800" font-size="13" fill="#25383f">Светлая</text>
+    <text x="12" y="139" font-family="system-ui, sans-serif" font-weight="600" font-size="10" fill="#60747b">Daylight Mint</text>
+  </g>
+
+  <!-- 2. Pink -->
+  <g transform="translate(194, 16)">
+    <rect width="160" height="153" rx="14" fill="#fbeaf0" stroke="#ebccda" stroke-width="1.5"/>
+    <rect x="10" y="10" width="140" height="22" rx="6" fill="#fffafd" stroke="#ebccda"/>
+    <circle cx="23" cy="21" r="5" fill="#c23670"/>
+    <rect x="34" y="18" width="52" height="6" rx="3" fill="#4a303f" opacity="0.5"/>
+    <rect x="10" y="40" width="66" height="58" rx="7" fill="#f6dce7" stroke="#c23670"/>
+    <rect x="84" y="40" width="66" height="58" rx="7" fill="#fffafd" stroke="#ebccda"/>
+    <rect x="94" y="76" width="46" height="12" rx="4" fill="#c23670"/>
+    <text x="12" y="122" font-family="system-ui, sans-serif" font-weight="800" font-size="13" fill="#4a303f">Сакура</text>
+    <text x="12" y="139" font-family="system-ui, sans-serif" font-weight="600" font-size="10" fill="#836475">Sakura Pink</text>
+  </g>
+
+  <!-- 3. Mint / Snow -->
+  <g transform="translate(370, 16)">
+    <rect width="160" height="153" rx="14" fill="#ebf5ff" stroke="#c7dff5" stroke-width="1.5"/>
+    <rect x="10" y="10" width="140" height="22" rx="6" fill="#ffffff" stroke="#c7dff5"/>
+    <circle cx="23" cy="21" r="5" fill="#0284c7"/>
+    <rect x="34" y="18" width="52" height="6" rx="3" fill="#1b3248" opacity="0.5"/>
+    <rect x="10" y="40" width="66" height="58" rx="7" fill="#dff0ff" stroke="#0284c7"/>
+    <rect x="84" y="40" width="66" height="58" rx="7" fill="#ffffff" stroke="#c7dff5"/>
+    <rect x="94" y="76" width="46" height="12" rx="4" fill="#0284c7"/>
+    <text x="12" y="122" font-family="system-ui, sans-serif" font-weight="800" font-size="13" fill="#1b3248">Зимний лёд</text>
+    <text x="12" y="139" font-family="system-ui, sans-serif" font-weight="600" font-size="10" fill="#587590">Snow Miku</text>
+  </g>
+
+  <!-- 4. Gold -->
+  <g transform="translate(546, 16)">
+    <rect width="160" height="153" rx="14" fill="#fff4e6" stroke="#edd5ba" stroke-width="1.5"/>
+    <rect x="10" y="10" width="140" height="22" rx="6" fill="#fffcf7" stroke="#edd5ba"/>
+    <circle cx="23" cy="21" r="5" fill="#d97706"/>
+    <rect x="34" y="18" width="52" height="6" rx="3" fill="#452c16" opacity="0.5"/>
+    <rect x="10" y="40" width="66" height="58" rx="7" fill="#fde6cc" stroke="#d97706"/>
+    <rect x="84" y="40" width="66" height="58" rx="7" fill="#fffcf7" stroke="#edd5ba"/>
+    <rect x="94" y="76" width="46" height="12" rx="4" fill="#d97706"/>
+    <text x="12" y="122" font-family="system-ui, sans-serif" font-weight="800" font-size="13" fill="#452c16">Шоутайм</text>
+    <text x="12" y="139" font-family="system-ui, sans-serif" font-weight="600" font-size="10" fill="#846346">Wonderlands</text>
+  </g>
+
+  <!-- 5. Dark -->
+  <g transform="translate(722, 16)">
+    <rect width="160" height="153" rx="14" fill="#141520" stroke="#463f5b" stroke-width="1.5"/>
+    <rect x="10" y="10" width="140" height="22" rx="6" fill="#222334" stroke="#463f5b"/>
+    <circle cx="23" cy="21" r="5" fill="#c1a5ec"/>
+    <rect x="34" y="18" width="52" height="6" rx="3" fill="#f3effa" opacity="0.55"/>
+    <rect x="10" y="40" width="66" height="58" rx="7" fill="#332d46" stroke="#c1a5ec"/>
+    <rect x="84" y="40" width="66" height="58" rx="7" fill="#222334" stroke="#463f5b"/>
+    <rect x="94" y="76" width="46" height="12" rx="4" fill="#c1a5ec"/>
+    <text x="12" y="122" font-family="system-ui, sans-serif" font-weight="800" font-size="13" fill="#f3effa">Ночная 25:00</text>
+    <text x="12" y="139" font-family="system-ui, sans-serif" font-weight="600" font-size="10" fill="#aba2bf">Moonlight</text>
+  </g>
+
+  <!-- 6. Cyber -->
+  <g transform="translate(898, 16)">
+    <rect width="160" height="153" rx="14" fill="#091020" stroke="#253b5e" stroke-width="1.5"/>
+    <rect x="10" y="10" width="140" height="22" rx="6" fill="#121c33" stroke="#253b5e"/>
+    <circle cx="23" cy="21" r="5" fill="#22d3ee"/>
+    <rect x="34" y="18" width="52" height="6" rx="3" fill="#eef8ff" opacity="0.55"/>
+    <rect x="10" y="40" width="66" height="58" rx="7" fill="#172e47" stroke="#22d3ee"/>
+    <rect x="84" y="40" width="66" height="58" rx="7" fill="#121c33" stroke="#253b5e"/>
+    <rect x="94" y="76" width="46" height="12" rx="4" fill="#22d3ee"/>
+    <text x="12" y="122" font-family="system-ui, sans-serif" font-weight="800" font-size="13" fill="#eef8ff">Кибер-неон</text>
+    <text x="12" y="139" font-family="system-ui, sans-serif" font-weight="600" font-size="10" fill="#8eb0cf">Vivid Cyber</text>
+  </g>
+</svg>

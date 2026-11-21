@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 210" width="1080" height="210">
+  <defs>
+    <linearGradient id="dsBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#090f24"/>
+      <stop offset="55%" stop-color="#111a36"/>
+      <stop offset="100%" stop-color="#241134"/>
+    </linearGradient>
+    <linearGradient id="dsAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#39C5BB"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#ff4f93"/>
+    </linearGradient>
+    <clipPath id="dsClip">
+      <rect width="1080" height="210" rx="22"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#dsClip)">
+    <rect width="1080" height="210" fill="url(#dsBg)"/>
+    <rect width="1080" height="4" fill="url(#dsAccent)"/>
+    <rect width="1080" height="210" rx="22" fill="none" stroke="#39C5BB" stroke-opacity="0.35" stroke-width="2"/>
+
+    <!-- Subtle grid -->
+    <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+      <line x1="0" y1="70" x2="1080" y2="70"/>
+      <line x1="0" y1="140" x2="1080" y2="140"/>
+      <line x1="360" y1="0" x2="360" y2="210"/>
+      <line x1="720" y1="0" x2="720" y2="210"/>
+    </g>
+
+    <!-- Header row -->
+    <g transform="translate(28, 22)">
+      <rect width="40" height="40" rx="11" fill="url(#dsAccent)"/>
+      <text x="20" y="25" text-anchor="middle" font-family="ui-monospace, monospace" font-weight="900" font-size="16" fill="#090f24">&lt;/&gt;</text>
+
+      <text x="54" y="18" font-family="system-ui, sans-serif" font-weight="900" font-size="19" fill="#ffffff">DEV STUDIO v3 · LIVE MODDING &amp; ENGINE LAB</text>
+      <text x="54" y="37" font-family="system-ui, sans-serif" font-weight="600" font-size="12" fill="#94a3b8">Ветка dev-studio · Открывается в любой момент по F12 или Ctrl + Shift + D</text>
+
+      <rect x="860" y="5" width="164" height="28" rx="14" fill="#0f172a" stroke="#39C5BB" stroke-opacity="0.65"/>
+      <circle cx="878" cy="19" r="4.5" fill="#34d399"/>
+      <text x="890" y="23" font-family="ui-monospace, monospace" font-weight="800" font-size="11" fill="#67e8f9">BRANCH: dev-studio</text>
+    </g>
+
+    <!-- 4 Feature Cards -->
+    <g transform="translate(28, 82)">
+      <rect width="242" height="104" rx="14" fill="#131c38" stroke="#39C5BB" stroke-opacity="0.45"/>
+      <text x="16" y="26" font-family="system-ui, sans-serif" font-weight="900" font-size="13" fill="#67e8f9">Текстуры и Pixel Painter</text>
+      <text x="16" y="48" font-family="system-ui, sans-serif" font-weight="500" font-size="11" fill="#cbd5e1">• 10 слотов: ноты, лента, плитки</text>
+      <text x="16" y="66" font-family="system-ui, sans-serif" font-weight="500" font-size="11" fill="#cbd5e1">• Голограмма сцены и частицы</text>
+      <text x="16" y="84" font-family="system-ui, sans-serif" font-weight="500" font-size="11" fill="#cbd5e1">• Встроенный пиксель-редактор</text>
+    </g>
+
+    <g transform="translate(288, 82)">
+      <rect width="242" height="104" rx="14" fill="#131c38" stroke="#34d399" stroke-opacity="0.45"/>
+      <text x="16" y="26" font-family="system-ui, sans-serif" font-weight="900" font-size="13" fill="#6ee7b7">Live Debug &amp; Custom SFX</text>
+      <text x="16" y="48" font-family="system-ui, sans-serif" font-weight="500" font-size="11" fill="#cbd5e1">• Хитбоксы, зоны ±мс и FPS HUD</text>
+      <text x="16" y="66" font-family="system-ui, sans-serif" font-weight="500" font-size="11" fill="#cbd5e1">• Перемотка Seek, 0.25x–2x, Fever</text>
+      <text x="16" y="84" font-family="system-ui, sans-serif" font-weight="500" font-size="11" fill="#cbd5e1">• Свои звуки Tap / Flick / Fanfare</text>
+    </g>
+
+    <g transform="translate(548, 82)">
+      <rect width="242" height="104" rx="14" fill="#131c38" stroke="#ff4f93" stroke-opacity="0.45"/>
+      <text x="16" y="26" font-family="system-ui, sans-serif" font-weight="900" font-size="13" fill="#f9a8d4">HUD, CSS/JS и Файлы HMR</text>
+      <text x="16" y="48" font-family="system-ui, sans-serif" font-weight="500" font-size="11" fill="#cbd5e1">• Drag &amp; Resize любых блоков UI</text>
+      <text x="16" y="66" font-family="system-ui, sans-serif" font-weight="500" font-size="11" fill="#cbd5e1">• 60FPS Canvas-хук SEKAI.on(...)</text>
+      <text x="16" y="84" font-family="system-ui, sans-serif" font-weight="500" font-size="11" fill="#cbd5e1">• Файлы, git diff и откат в Vite</text>
+    </g>
+
+    <g transform="translate(808, 82)">
+      <rect width="244" height="104" rx="14" fill="#131c38" stroke="#fbbf24" stroke-opacity="0.45"/>
+      <text x="16" y="26" font-family="system-ui, sans-serif" font-weight="900" font-size="13" fill="#fde68a">Профили, Пресеты и QR</text>
+      <text x="16" y="48" font-family="system-ui, sans-serif" font-weight="500" font-size="11" fill="#cbd5e1">• 4 пресета в 1 клик + Undo стек</text>
+      <text x="16" y="66" font-family="system-ui, sans-serif" font-weight="500" font-size="11" fill="#cbd5e1">• Экспорт модов .sekaimod.json</text>
+      <text x="16" y="84" font-family="system-ui, sans-serif" font-weight="500" font-size="11" fill="#cbd5e1">• Wi-Fi QR перенос на Android</text>
+    </g>
+  </g>
+</svg>
